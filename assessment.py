@@ -92,7 +92,7 @@ def foods_in_common(foods1, foods2):
     # I got the idea for this from https://stackoverflow.com/questions/2864842/common-elements-comparison-between-2-lists
     result = []
     for element in foods1:
-        if element in foods2:
+        if element in foods2 and foods1:
             result.append(element)
 
     
@@ -116,7 +116,7 @@ def every_other_item(items):
        ['you', 'are', 'good', 'at', 'code']
     """
 
-    return ['the wrong thing']
+    return items[::2]
 
 
 def largest_n_items(items, n):
@@ -140,8 +140,13 @@ def largest_n_items(items, n):
         >>> largest_n_items([3, 3, 3, 2, 1], 2)
         [3, 3]
     """
+    # I got the idea for this from https://stackoverflow.com/questions/19469136/python-function-returning-highest-value-in-list-without-max
+    # if you sort the items in decending oder and store the "n" number of items, then you have the max
+    if n > 0:
+        return sorted(items, reverse=True)[:n]
+    else:
+        return []
 
-    return []
 
 
 #####################################################################
