@@ -18,9 +18,12 @@ def all_odd(numbers):
     """
     new_list = []
 
-    for number in numbers:
-        if number % 2 == 1:
-            new_list.append(number)
+    # Below is what I used before and I made it into a list comprehension :
+    # for number in numbers:
+    #     if number % 2 == 1:
+    #         new_list.append(number)
+
+    [new_list.append(number) for number in numbers if number % 2 == 1]
 
     return new_list
 
@@ -90,6 +93,8 @@ def foods_in_common(foods1, foods2):
 
     """
     # I got the idea for this from https://stackoverflow.com/questions/2864842/common-elements-comparison-between-2-lists
+    # I thought about making this into a list comprehension, but I think it look cleaner this way
+    
     result = []
     for element in foods1:
         if element in foods2 and element not in result:
@@ -141,7 +146,7 @@ def largest_n_items(items, n):
         [3, 3]
     """
     # I got the idea for this from https://stackoverflow.com/questions/19469136/python-function-returning-highest-value-in-list-without-max
-    # if you sort the items in decending oder and store the "n" number of items, then you have the max
+    # if you sort the items in decending order and store the "n" number of items, then you have the max
     if n > 0:
         return sorted(items)[len(items) - n:]
     else:
